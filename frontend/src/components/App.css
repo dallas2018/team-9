@@ -156,16 +156,21 @@ button {
 }
 
 .login-buttons{
-  margin-left: 200px;
+  margin-left: 35%;
+}
+
+.login-buttons-s{
+  margin-left: 35%;
 }
 
 .btn{
-  margin: 60px;
+  margin-right: 2%;
+  margin-top: 20%;
   width: 200px;
 
 }
 
 .wrapper-log{
-  text-align: center;
+  padding-left: 2%;
 }
 

@@ -73,8 +73,8 @@ class LoginIn extends React.Component{
                     </header>
 
             <div className="login-pg">
-                <div className="container">
-                    <div className="login-buttons">
+                <div className="container-a">
+                    <div className="login-buttons-s">
                         {/* using Bootstrap for button prettiness */}
                         <button className="btn btn-primary" onClick={ () => {this.login()}}>Google Login</button>
 
@@ -85,8 +85,10 @@ class LoginIn extends React.Component{
                                     <img src={this.state.user.photoURL}/>
                                 </div>
                             </div> :
-                            <div className='wrapper-log'>
-                                <p>You must be logged in to sell or buy items for charity.</p>
+                            <div >
+                                <br/>
+                                <br/>
+                                <p className='wrapper-log'>You must be logged in to sell or buy items for charity.</p>
                             </div>
                         }
 
