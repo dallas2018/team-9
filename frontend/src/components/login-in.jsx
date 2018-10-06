@@ -7,8 +7,9 @@ class LoginIn extends React.Component{
             <div className="login-pg">
                 <div className="container">
                     <div className="login-buttons">
-                        <a>Facebook Login</a>
-                        <a>Google Login</a>
+                        <button className="btn btn-primary">Facebook Login</button>
+                        <br/>
+                        <button>Google Login</button>
 
 
                     </div>
