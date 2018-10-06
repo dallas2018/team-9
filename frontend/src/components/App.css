@@ -154,3 +154,23 @@ button {
   border-radius: 50%;
   max-width: 100%;
 }
+
+.login-buttons{
+  margin-left: 35%;
+}
+
+.login-buttons-s{
+  margin-left: 35%;
+}
+
+.btn{
+  margin-right: 2%;
+  margin-top: 20%;
+  width: 200px;
+
+}
+
+.wrapper-log{
+  padding-left: 2%;
+}
+
