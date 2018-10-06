@@ -88,7 +88,7 @@ class LoginIn extends React.Component{
                             <div >
                                 <br/>
                                 <br/>
-                                <p className='wrapper-log'>You must be logged in to sell or buy items for charity.</p>
+                                <p className='wrapper-log'>You must be logged in to donate or buy items for charity.</p>
                             </div>
                         }
 
