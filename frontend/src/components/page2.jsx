@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {auth, provider} from "./firebase";
 import { Redirect } from 'react-router';
+import './App.css';
 
 class Page2 extends React.Component{
 
@@ -9,6 +10,7 @@ class Page2 extends React.Component{
         this.state={
             redirect: false,
             user: null,
+
         }
         this.login = this.login.bind(this); // <-- add this line
         this.logout = this.logout.bind(this); // <-- add this line
@@ -67,12 +69,14 @@ class Page2 extends React.Component{
 
         }
 
+
         return (
             <div className="page2">
-                <div className="container">
+
                     <header>
                         <div className="wrapper">
                             <h1>Team 9</h1>
+
                             {this.state.user ?
                                 <button onClick={this.logout}>Logout</button>
                                 :
@@ -83,6 +87,9 @@ class Page2 extends React.Component{
 
                     {this.state.user ?
                         <div>
+
+                            <button className="btn btn-primary " onClick={ () => {this.handleBuyClick();}}>Buy</button>
+                            <button className="btn btn-primary " onClick={ () => {this.handleSellClick();}}>Sell</button>
                             <div className='user-profile'>
                                 <img src={this.state.user.photoURL}/>
                             </div>
@@ -94,12 +101,7 @@ class Page2 extends React.Component{
                         </div>
                     }
 
-                    <button className="btn buy" onClick={ () => {this.handleBuyClick();}}>Buy</button>
-                    <button className="btn sell" onClick={ () => {this.handleSellClick();}}>Sell</button>
 
-
-
-                </div>
 
             </div>
         );
