@@ -22,3 +22,5 @@ yarn-error.log*
 
 # ide
 .idea/
+.vs/
+frontend/package-lock.json
