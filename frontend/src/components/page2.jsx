@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 
 class Page2 extends React.Component{
 
+    handleClick(event){
+
+    }
+
     render() {
         return (
             <div className="page2">
@@ -10,7 +14,7 @@ class Page2 extends React.Component{
 
 
                     <div className="buy-sell">
-                    <button className="btn buy">Buy</button>
+                    <button className="btn buy" onClick={() => this.handleClick()}>Buy</button>
                     <button className="btn sell">Sell</button>
                     </div>
 
