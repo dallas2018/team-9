@@ -1,20 +1,17 @@
 import React, {Component} from 'react';
 import {auth, provider} from "./firebase";
-import { Redirect } from 'react-router';
 
-class LoginIn extends React.Component{
+class Page2 extends React.Component{
 
     constructor(props){
         super(props);
-        this.state ={
-            username: '',
-            user: null, // <-- add this line
+        this.state={
             redirect: false,
-            result: {}
+            user: null,
         }
-
+        this.login = this.login.bind(this); // <-- add this line
+        this.logout = this.logout.bind(this); // <-- add this line
     }
-
 
     logout = () =>{
         auth.signOut()
@@ -38,59 +35,47 @@ class LoginIn extends React.Component{
                 this.setState({
                     result: val
                 });
-
+                console.log(result);
                 this.handleOnClick();
             });
     }
 
-    render() {
-        if (this.state.redirect) {
-            return <Redirect usr = {this.state.result} push to="/page2" />;
-        }
 
+    render() {
         return (
-            <div>
+            <div className="page2">
                 <div className="container">
                     <header>
                         <div className="wrapper">
                             <h1>Team 9</h1>
                             {this.state.user ?
-                                <button onClick={() => {this.logout()} }>Logout</button>
+                                <button onClick={this.logout}>Logout</button>
                                 :
-                                null
+                                <button onClick={this.login}>Log In</button>
                             }
                         </div>
                     </header>
+
                     {this.state.user ?
                         <div>
                             <div className='user-profile'>
                                 <img src={this.state.user.photoURL}/>
                             </div>
-                        </div> :
+                        </div>
+
+                        :
                         <div className='wrapper'>
                             <p>You must be logged in to sell or buy items for charity.</p>
                         </div>
                     }
-            </div>
-            <div className="login-pg">
-                <div className="container">
-                    <div className="login-buttons">
-                        {/* using Bootstrap for button prettiness */}
-                        <button className="btn btn-primary btn-block" onClick={ () => {this.login()}}>Facebook Login</button>
-                        <br/>
-                        <button className="btn btn-primary btn-block">Google Login</button>
 
 
-                    </div>
                 </div>
 
             </div>
-                {this.state.user ? <page2 /> : null}
-            </div>
-            
         );
     }
 
 }
 
-export default LoginIn;
+export default Page2;
