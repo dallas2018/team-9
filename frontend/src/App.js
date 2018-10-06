@@ -12,11 +12,7 @@ class App extends Component {
                 <Switch>
 
                     <Route exact name="home" path="/" component={Login}/>
-<<<<<<< HEAD
-                    <Route exact name="home" path="/sellBuyPanel" component={sellBuyPanel}/>
-=======
                     <Route exact name="page2" path="/page2" component={page2}/>
->>>>>>> Mick
                 </Switch>
             </div>
         </Router>
