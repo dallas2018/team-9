@@ -100,6 +100,7 @@ class Page2 extends React.Component{
 
                         :
                         <div className='wrapper-log'>
+                            <br/>
                             <p>You must be logged in to sell or buy items for charity.</p>
                         </div>
                     }
