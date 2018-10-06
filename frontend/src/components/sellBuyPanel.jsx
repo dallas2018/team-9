@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import firebase, {auth, provider} from "./firebase";
 import './App.css';
-
+import { Redirect } from 'react-router';
 
 class BuySellPanel extends Component {
     constructor(props) {
@@ -10,6 +10,7 @@ class BuySellPanel extends Component {
             currentItem: '',
             username: '',
             items: [],
+            backRedirect:false,
             user: null // <-- add this line
         }
         this.login = this.login.bind(this); // <-- add this line
@@ -95,17 +96,26 @@ class BuySellPanel extends Component {
         itemRef.remove();
     }
 
+    backRedir = () => {
+
+        this.setState({backRedirect : true});
+    }
     render() {
+        if(this.state.backRedirect){
+            return <Redirect push to="/page2"/>
+        }
         return (
             <div className='app'>
                 <header>
                     <div className="wrapper">
                         <h1>Team 9 - {this.props.location.state.status}</h1>
+                        <button onClick={() => {this.backRedir();}}>Back to Buy&Sell Option</button>
                         {this.state.user ?
                             <button onClick={this.logout}>Logout</button>
                             :
                             <button onClick={this.login}>Log In</button>
                         }
+
                     </div>
                 </header>
                 {this.state.user ?

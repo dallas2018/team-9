@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {auth, provider} from "./firebase";
 import { Redirect } from 'react-router';
+import './App.css';
 
 class LoginIn extends React.Component{
 
@@ -19,6 +20,7 @@ class LoginIn extends React.Component{
         auth.onAuthStateChanged((user) => {
             if (user) {
                 this.setState({user});
+                this.handleOnClick();
             }
         });
     }
@@ -57,8 +59,8 @@ class LoginIn extends React.Component{
         }
 
         return (
-            <div>
-                <div className="container">
+            <div className='app'>
+
                     <header>
                         <div className="wrapper">
                             <h1>Team 9</h1>
@@ -69,25 +71,24 @@ class LoginIn extends React.Component{
                             }
                         </div>
                     </header>
-                    {this.state.user ?
-                        <div>
-                            <div className='user-profile'>
-                                <img src={this.state.user.photoURL}/>
-                            </div>
-                        </div> :
-                        <div className='wrapper'>
-                            <p>You must be logged in to sell or buy items for charity.</p>
-                        </div>
-                    }
-            </div>
+
             <div className="login-pg">
                 <div className="container">
                     <div className="login-buttons">
                         {/* using Bootstrap for button prettiness */}
-                        <button className="btn btn-primary btn-block" onClick={ () => {this.login()}}>Facebook Login</button>
+                        <button className="btn btn-primary" onClick={ () => {this.login()}}>Facebook Login</button>
                         <br/>
-                        <button className="btn btn-primary btn-block">Google Login</button>
-
+                        <button className="btn btn-primary ">Google Login</button>
+                        {this.state.user ?
+                            <div>
+                                <div className='user-profile'>
+                                    <img src={this.state.user.photoURL}/>
+                                </div>
+                            </div> :
+                            <div className='wrapper'>
+                                <p>You must be logged in to sell or buy items for charity.</p>
+                            </div>
+                        }
 
                     </div>
                 </div>
