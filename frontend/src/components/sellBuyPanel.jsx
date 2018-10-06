@@ -4,8 +4,8 @@ import './App.css';
 
 
 class BuySellPanel extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             currentItem: '',
             username: '',
@@ -18,6 +18,7 @@ class BuySellPanel extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
