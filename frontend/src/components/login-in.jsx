@@ -4,18 +4,27 @@ class LoginIn extends React.Component{
 
     render() {
         return (
+            <div>
+                <div className="container">
+                <div classname="project-header">
+                CAUSE STUFF
+                </div>
+            </div>
             <div className="login-pg">
                 <div className="container">
                     <div className="login-buttons">
-                        <button className="btn btn-primary">Facebook Login</button>
+                        {/* using Bootstrap for button prettiness */}
+                        <button className="btn btn-primary btn-block">Facebook Login</button>
                         <br/>
-                        <button>Google Login</button>
+                        <button className="btn btn-primary btn-block">Google Login</button>
 
 
                     </div>
                 </div>
 
             </div>
+            </div>
+            
         );
     }
 
