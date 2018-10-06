@@ -4,6 +4,7 @@ import './components/App.css';
 import Login from './components/login-in';
 import page2 from './components/page2';
 import sellBuyPanel from './components/sellBuyPanel';
+import pageFive from './components/pagefive';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
                     <Route exact name="home" path="/" component={Login}/>
                     <Route exact name="page2" path="/page2" component={page2}/>
                     <Route exact name="sellBuyPanel" path="/sellBuyPanel" component={sellBuyPanel}/>
+                    <Route excat name="pageFive" path="/pageFive" component={pageFive}/>
                 </Switch>
             </div>
         </Router>
