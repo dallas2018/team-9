@@ -174,3 +174,19 @@ button {
   padding-left: 2%;
 }
 
+.wrap-stuff{
+  margin: 10% 20%;
+}
+
+.statusbar{
+  width: 30%;
+}
+
+.sameline{
+  display: inline;
+}
+
+.ads{
+  margin-top: 0;
+  margin-left: 20%;
+}

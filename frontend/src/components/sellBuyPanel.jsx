@@ -125,7 +125,7 @@ class BuySellPanel extends Component {
                 <header>
                     <div className="wrapper">
                         <h1>Team 9 - {this.props.location.state.status}</h1>
-                        <button onClick={() => {this.backRedir();}}>Buy & Sell </button>
+                        <button onClick={() => {this.backRedir();}}>Buy & Donate </button>
                         {this.state.user ?
                             <button onClick={this.logout}>Logout</button>
                             :
@@ -161,7 +161,7 @@ class BuySellPanel extends Component {
                                                 <li key={item.id}>
                                                     <h3>{item.title}</h3>
                                                     <p>Sold By: {item.user}
-                                                        { (item.user === this.state.user.displayName || item.user === this.state.user.email) && (this.props.location.state.status === "Sell") ?
+                                                        { (item.user === this.state.user.displayName || item.user === this.state.user.email) && (this.props.location.state.status === "Donate") ?
                                                             <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
                                                     </p>
                                                     

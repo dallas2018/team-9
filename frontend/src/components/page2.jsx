@@ -21,7 +21,7 @@ class Page2 extends React.Component{
     }
 
     handleSellClick = () => {
-        this.handleOnClick("Sell");
+        this.handleOnClick("Donate");
     }
 
     logout = () =>{
@@ -92,7 +92,7 @@ class Page2 extends React.Component{
                         <div>
 
                             <button className="btn btn-primary " onClick={ () => {this.handleBuyClick();}}>Buy</button>
-                            <button className="btn btn-primary " onClick={ () => {this.handleSellClick();}}>Sell</button>
+                            <button className="btn btn-primary " onClick={ () => {this.handleSellClick();}}>Donate</button>
                             <div className='user-profile'>
                                 <img src={this.state.user.photoURL}/>
                             </div>
@@ -101,7 +101,7 @@ class Page2 extends React.Component{
                         :
                         <div className='wrapper-log'>
                             <br/>
-                            <p>You must be logged in to sell or buy items for charity.</p>
+                            <p>You must be logged in to donate or buy items for charity.</p>
                         </div>
                     }
 
