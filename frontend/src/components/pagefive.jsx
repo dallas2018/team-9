@@ -10,6 +10,7 @@ class Pagefive extends  Component{
 		super(props);
 		this.state = {
 			status : "",
+			redirect : false,
 			pho_src : require("./green.png"),
 			data : [ {org_name : "Red Cross", location : "Dallas" , friend : "Jamie K."} ,
 				 {org_name : "Habitat For Humanity", location : "New York" , friend : "Emily W."},
@@ -46,7 +47,14 @@ class Pagefive extends  Component{
 
 	}
 
+	clickHandler = ()=> {
+		this.setState({redirect : true});
+	}
+
 	render(){
+		if(this.state.redirect){
+			return <Redirect push to="/" />
+		}
 		return(
 			<div>
 			<header>

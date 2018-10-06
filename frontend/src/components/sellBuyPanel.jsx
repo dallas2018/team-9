@@ -140,7 +140,10 @@ class BuySellPanel extends Component {
                             <img src={this.state.user.photoURL} />
                         </div>
                         <div className='container'>
-                            <section className='add-item'>
+
+                            { (this.props.location.state.status !== "Buy") 
+
+                            ?                             <section className='add-item'>
                                 <form onSubmit={this.handleSubmit}>
                                     <input type="text" name="username" placeholder="What's your name?" value={this.state.user.displayName || this.state.user.email} />
                                     <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
@@ -151,7 +154,8 @@ class BuySellPanel extends Component {
 
                                     <button>Add Item</button>
                                 </form>
-                            </section>
+                            </section> : null}
+
 
                             <section className='display-item'>
                                 <div className="wrapper">
@@ -161,11 +165,11 @@ class BuySellPanel extends Component {
                                                 <li key={item.id}>
                                                     <h3>{item.title}</h3>
                                                     <p>Sold By: {item.user}
-                                                        { (item.user === this.state.user.displayName || item.user === this.state.user.email) && (this.props.location.state.status === "Donate") ?
+                                                        { (item.user === this.state.user.displayName ) && (this.props.location.state.status === "Donate") ?
                                                             <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
                                                     </p>
                                                     
-                                                        { (item.user === this.state.user.displayName || item.user === this.state.user.email) && (this.props.location.state.status === "Buy") ?
+                                                        { (item.user !== this.state.user.displayName ) && (this.props.location.state.status === "Buy") ?
                                                         <button onClick={() => this.handleRedirect()}>Buy Item</button> : null}
                                                     <p> Price: {item.price}
                                                     {console.log(item)}
