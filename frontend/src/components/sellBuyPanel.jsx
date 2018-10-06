@@ -100,7 +100,7 @@ class BuySellPanel extends Component {
             <div className='app'>
                 <header>
                     <div className="wrapper">
-                        <h1>Team 9</h1>
+                        <h1>Team 9 - {this.props.location.state.status}</h1>
                         {this.state.user ?
                             <button onClick={this.logout}>Logout</button>
                             :

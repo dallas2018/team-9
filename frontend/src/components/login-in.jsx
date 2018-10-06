@@ -15,6 +15,14 @@ class LoginIn extends React.Component{
 
     }
 
+    componentDidMount() {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({user});
+            }
+        });
+    }
+
 
     logout = () =>{
         auth.signOut()
@@ -45,7 +53,7 @@ class LoginIn extends React.Component{
 
     render() {
         if (this.state.redirect) {
-            return <Redirect usr = {this.state.result} push to="/page2" />;
+            return <Redirect push to="/page2" />;
         }
 
         return (
