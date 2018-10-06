@@ -1,0 +1,22 @@
+[
+    {
+      "name": "CharityWater",
+      "category": "water"
+    },
+    {
+      "name": "HopeForHope",
+      "category": "food"
+    },
+    {
+      "name": "United Way",
+      "category": "education"
+    },
+    {
+      "name": "Habitat for Humanity",
+      "category": "housing"
+    },
+    {
+      "name": "American Heart Association",
+      "category": "medical"
+    }
+  ]
