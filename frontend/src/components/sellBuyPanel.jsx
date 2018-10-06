@@ -8,9 +8,11 @@ class BuySellPanel extends Component {
         super(props);
         this.state = {
             currentItem: '',
+            priceItem: '',
             username: '',
             items: [],
             backRedirect:false,
+            redirect: false,
             user: null // <-- add this line
         }
         this.login = this.login.bind(this); // <-- add this line
@@ -21,6 +23,8 @@ class BuySellPanel extends Component {
     }
 
     handleChange(e) {
+        console.log(e.target.name)
+        console.log(e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         });
@@ -49,23 +53,30 @@ class BuySellPanel extends Component {
 
 
 
+    handleRedirect = () => {
+
+        this.setState({redirect : true});
+    }
 
     handleSubmit(e) {
         e.preventDefault();
         const itemsRef = firebase.database().ref('items');
         const item = {
             title: this.state.currentItem,
-            user: this.state.user.displayName || this.state.user.email
+            user: this.state.user.displayName || this.state.user.email,
+            price: this.state.priceItem
         }
+        console.log(this.state.priceItem);
 
 
 
 
-        itemsRef.push(item);
-        this.setState({
+       itemsRef.push(item);
+    /*    this.setState({
             currentItem: '',
             username: ''
-        });
+
+        });*/
     }
     componentDidMount() {
         auth.onAuthStateChanged((user) => {
@@ -83,7 +94,8 @@ class BuySellPanel extends Component {
                 newState.push({
                     id: item,
                     title: items[item].title,
-                    user: items[item].user
+                    user: items[item].user,
+                    price: items[item].price
                 });
             }
             this.setState({
@@ -104,12 +116,16 @@ class BuySellPanel extends Component {
         if(this.state.backRedirect){
             return <Redirect push to="/page2"/>
         }
+
+        if(this.state.redirect){
+            return <Redirect push to="/pageFive"/>
+        }
         return (
             <div className='app'>
                 <header>
                     <div className="wrapper">
                         <h1>Team 9 - {this.props.location.state.status}</h1>
-                        <button onClick={() => {this.backRedir();}}>Back to Buy&Sell Option</button>
+                        <button onClick={() => {this.backRedir();}}>Buy & Donate </button>
                         {this.state.user ?
                             <button onClick={this.logout}>Logout</button>
                             :
@@ -128,6 +144,11 @@ class BuySellPanel extends Component {
                                 <form onSubmit={this.handleSubmit}>
                                     <input type="text" name="username" placeholder="What's your name?" value={this.state.user.displayName || this.state.user.email} />
                                     <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
+
+                                    <input type="text" name="priceItem" placeholder="Price" onChange={this.handleChange} value={this.state.priceItem} />
+
+
+
                                     <button>Add Item</button>
                                 </form>
                             </section>
@@ -139,10 +160,17 @@ class BuySellPanel extends Component {
                                             return (
                                                 <li key={item.id}>
                                                     <h3>{item.title}</h3>
-                                                    <p>brought by: {item.user}
-                                                        {item.user === this.state.user.displayName || item.user === this.state.user.email ?
+                                                    <p>Sold By: {item.user}
+                                                        { (item.user === this.state.user.displayName || item.user === this.state.user.email) && (this.props.location.state.status === "Donate") ?
                                                             <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
                                                     </p>
+                                                    
+                                                        { (item.user === this.state.user.displayName || item.user === this.state.user.email) && (this.props.location.state.status === "Buy") ?
+                                                        <button onClick={() => this.handleRedirect()}>Buy Item</button> : null}
+                                                    <p> Price: {item.price}
+                                                    {console.log(item)}
+                                                    </p>
+
                                                 </li>
                                             )
                                         })}
