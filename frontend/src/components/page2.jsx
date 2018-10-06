@@ -73,6 +73,8 @@ class Page2 extends React.Component{
         return (
             <div className="page2">
 
+
+
                     <header>
                         <div className="wrapper">
                             <h1>Team 9</h1>
@@ -85,6 +87,7 @@ class Page2 extends React.Component{
                         </div>
                     </header>
 
+                <div className="login-buttons">
                     {this.state.user ?
                         <div>
 
@@ -96,12 +99,12 @@ class Page2 extends React.Component{
                         </div>
 
                         :
-                        <div className='wrapper'>
+                        <div className='wrapper-log'>
                             <p>You must be logged in to sell or buy items for charity.</p>
                         </div>
                     }
 
-
+                </div>
 
             </div>
         );

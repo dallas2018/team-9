@@ -76,16 +76,16 @@ class LoginIn extends React.Component{
                 <div className="container">
                     <div className="login-buttons">
                         {/* using Bootstrap for button prettiness */}
-                        <button className="btn btn-primary" onClick={ () => {this.login()}}>Facebook Login</button>
-                        <br/>
-                        <button className="btn btn-primary ">Google Login</button>
+                        <button className="btn btn-primary" onClick={ () => {this.login()}}>Google Login</button>
+
+                        <button className="btn btn-primary ">Facebook Login</button>
                         {this.state.user ?
                             <div>
                                 <div className='user-profile'>
                                     <img src={this.state.user.photoURL}/>
                                 </div>
                             </div> :
-                            <div className='wrapper'>
+                            <div className='wrapper-log'>
                                 <p>You must be logged in to sell or buy items for charity.</p>
                             </div>
                         }

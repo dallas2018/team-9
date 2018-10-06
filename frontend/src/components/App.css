@@ -155,3 +155,17 @@ button {
   max-width: 100%;
 }
 
+.login-buttons{
+  margin-left: 200px;
+}
+
+.btn{
+  margin: 60px;
+  width: 200px;
+
+}
+
+.wrapper-log{
+  text-align: center;
+}
+
