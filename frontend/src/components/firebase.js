@@ -1,7 +1,7 @@
 // src/firebase.js
 import firebase from 'firebase'
 const config = {
-    apiKey: "",
+    apiKey: "REMOVED",
     authDomain: "backendteam9.firebaseapp.com",
     databaseURL: "https://backendteam9.firebaseio.com",
     projectId: "backendteam9",
